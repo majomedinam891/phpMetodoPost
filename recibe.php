@@ -20,4 +20,17 @@
     <input type="text" name="modalidad">
     <button type="submit">Enviar</button>
 </form>
+<?php
+$persona = [
+    "nombre" => "Laura",
+    "edad"   => 31,
+    "ciudad" => "Bogotá",
+];
 
+echo $persona["nombre"], " vive en ", $persona["ciudad"], "\n";
+$persona["profesion"] = "Ingeniera";
+
+foreach ($persona as $clave => $valor) {
+    echo "$clave: $valor\n";
+}
+echo isset($persona["telefono"]) ? "tiene" : "sin teléfono", "\n";
