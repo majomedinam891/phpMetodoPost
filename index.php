@@ -69,25 +69,20 @@ $inventario = [
     "uvas" => 15,
 ];
 
-// Recorrer el inventario
 foreach ($inventario as $producto => $cantidad) {
     echo "$producto: $cantidad unidades <br>";
 }
 
-// Agregar mangos
 $inventario["mangos"] = 20;
 
-// Aumentar 10 unidades a las peras
 $inventario["peras"] += 10;
 
-// Verificar si existen kiwis
 if (isset($inventario["kiwis"])) {
     echo "Sí existen kiwis en el inventario";
 } else {
     echo "No existen kiwis en el inventario";
 }
 
-// Calcular el total de unidades
 $total = array_sum($inventario);
 
 echo "<br> Total de unidades: $total";
@@ -104,18 +99,15 @@ $estudiantes = [
     "Carlos" => ["matematicas" => 2.5, "ciencias" => 3.2, "ingles" => 2.9],
 ];
 
-// Crear arrays vacíos
 $promedios = [];
 $resultados = [];
 
-// Calcular promedio de cada estudiante
 foreach ($estudiantes as $nombre => $notas) {
 
     $promedio = array_sum($notas) / count($notas);
 
     $promedios[$nombre] = $promedio;
 
-    // Clasificar estudiante
     if ($promedio >= 3.0) {
         $resultados[$nombre] = "Aprobado";
     } else {
@@ -123,12 +115,10 @@ foreach ($estudiantes as $nombre => $notas) {
     }
 }
 
-// Mostrar promedios
 foreach ($promedios as $nombre => $promedio) {
     echo "$nombre: $promedio <br>";
 }
 
-// Mejor y peor promedio
 $mejor = max($promedios);
 $peor = min($promedios);
 
@@ -138,14 +128,12 @@ echo " ($mejor)";
 echo "<br> Peor promedio: " . array_search($peor, $promedios);
 echo " ($peor)";
 
-// Mostrar resultados
 echo "<br><br> Resultados: <br>";
 
 foreach ($resultados as $nombre => $estado) {
     echo "$nombre: $estado <br>";
 }
 
-// Promedio de cada materia
 $materias = ["matematicas", "ciencias", "ingles"];
 
 echo "<br> Promedio por materia: <br>";
@@ -176,21 +164,17 @@ $empleados = [
     ["nombre" => "Julia", "depto" => "Recursos", "salario" => 3000000],
 ];
 
-// Crear arrays vacíos
 $porDepto = [];
 $salarios = [];
 
-// Recorrer empleados
 foreach ($empleados as $empleado) {
 
     $depto = $empleado["depto"];
     $nombre = $empleado["nombre"];
     $salario = $empleado["salario"];
 
-    // Agrupar nombres por departamento
     $porDepto[$depto][] = $nombre;
 
-    // Sumar salarios por departamento
     if (!isset($salarios[$depto])) {
         $salarios[$depto] = 0;
     }
@@ -198,7 +182,6 @@ foreach ($empleados as $empleado) {
     $salarios[$depto] += $salario;
 }
 
-// Mostrar empleados por departamento
 foreach ($porDepto as $depto => $nombres) {
 
     echo "$depto: ";
@@ -210,7 +193,6 @@ foreach ($porDepto as $depto => $nombres) {
     echo "<br>";
 }
 
-// Calcular promedio de salarios
 echo "<br> Promedio de salarios por departamento: <br>";
 
 foreach ($salarios as $depto => $total) {
@@ -222,7 +204,6 @@ foreach ($salarios as $depto => $total) {
     echo "$depto: $promedio <br>";
 }
 
-// Encontrar departamento con mayor nómina
 $mayor = max($salarios);
 
 $departamentoMayor = array_search($mayor, $salarios);
